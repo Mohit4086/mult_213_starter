@@ -22,6 +22,7 @@ async function main() {
                 console.log("h - Display this help menu");
                 console.log("demo - Run a demo of 10 games between two preset players");
                 console.log("game - Play a game of Rock, Paper, Scissors");
+                console.log("poke - Fetch info about a given Pokemon");
                 console.log("q - Quit the application");
                 break;
             case "q":
@@ -34,6 +35,19 @@ async function main() {
             case "game":
                 await singlePlayerGame();
                 console.log("Thanks for playing!");
+                break;
+            case "poke":
+                // Ask the user for a pokemon name
+                const pokemonName = await prompt("Enter a pokemon name: ");
+
+                // Try to fetch the information
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
+                if (response.ok) {
+                    const pokemonData = await response.json();
+                    console.log(`All the data: ${JSON.stringify(pokemonData)}`);
+                } else {
+                    console.log(`Could not find data for pokemon: ${pokemonName}`);
+                }
                 break;
             default:
                 console.log("What are you even trying to do? Type 'h' for help.");
