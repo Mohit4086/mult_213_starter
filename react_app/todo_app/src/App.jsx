@@ -23,10 +23,16 @@ function App() {
   } else {
     // If there are TODOs, render them as li elements
     listContent = todos.map((item, i) => {
-      return <li key={"todo-" + i} className="todo-item">
-        <input type="checkbox" className="todo-item__checkbox" data-id={i} id={"todo-" + i} />
-        <label htmlFor={"todo-" + i} className="todo-item__label">{item.name}</label>
-      </li>
+      
+      return<Cards
+        title={item.name}
+      />
+      
+      
+      // return <li key={"todo-" + i} className="todo-item">
+      //   <input type="checkbox" className="todo-item__checkbox" data-id={i} id={"todo-" + i} />
+      //   <label htmlFor={"todo-" + i} className="todo-item__label">{item.name}</label>
+      // </li>
     })
   }
 
@@ -60,11 +66,11 @@ function App() {
     <>
       <Header title="Welcome to My Website!" message="Thanks for visiting my site." />
       <ToDoList handleFormSubmit={handleFormSubmit} listContent={listContent} />
-      <Cards
-        title="Minion"
-        subtitle="Banana"
+      {/* <Cards
+        title="My first card"
+        subtitle="Card subtitle"
         content="This is the content of my card."
-      />
+      /> */}
 
       <Footer message="Contact me at contact@mywebsite.com" />
 
