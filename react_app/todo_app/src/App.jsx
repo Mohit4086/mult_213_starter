@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg';
 import { Header } from './Header';
 import { Footer } from './footer';
 import reactLogo from './assets/react.svg';
+import { ToDoList } from './todolist.jsx';
 
 function App() {
   // Define the TODO models
@@ -57,30 +58,7 @@ function App() {
   return (
     <>
       <Header title="Welcome to My Website!" message="Thanks for visiting my site." />
-
-      <main>
-        <section>
-          <form id="todo-form" action={handleFormSubmit}>
-            <input
-              className="todo-form__input"
-              id="todo-input"
-              name="title"
-              type="text"
-              placeholder="Add a new task…"
-              autoComplete="off"
-              required
-            />
-            <button className="todo-form__button" type="submit">Add</button>
-          </form>
-        </section>
-
-        <section>
-          <h2>My TODOs:</h2>
-          <ul className="todo-list" id="todo-list">
-            {listContent}
-          </ul>
-        </section>
-      </main>
+      <ToDoList handleFormSubmit={handleFormSubmit} listContent={listContent} />
 
     <Footer message="Contact me at contact@mywebsite.com" />
 
