@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import viteLogo from '/vite.svg';
 import { Header } from './Header';
+import { Footer } from './footer';
 import reactLogo from './assets/react.svg';
 
 function App() {
@@ -80,6 +81,8 @@ function App() {
           </ul>
         </section>
       </main>
+
+    <Footer message="Contact me at contact@mywebsite.com" />
 
       <footer>
         <p className="read-the-docs">
