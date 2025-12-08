@@ -3,6 +3,7 @@ import { useState } from 'react';
 import viteLogo from '/vite.svg';
 import { Header } from './Header';
 import { Footer } from './footer';
+import { Cards } from "./Cards";
 import reactLogo from './assets/react.svg';
 import { ToDoList } from './todolist.jsx';
 
@@ -59,8 +60,13 @@ function App() {
     <>
       <Header title="Welcome to My Website!" message="Thanks for visiting my site." />
       <ToDoList handleFormSubmit={handleFormSubmit} listContent={listContent} />
+      <Cards
+        title="Minion"
+        subtitle="Banana"
+        content="This is the content of my card."
+      />
 
-    <Footer message="Contact me at contact@mywebsite.com" />
+      <Footer message="Contact me at contact@mywebsite.com" />
 
       <footer>
         <p className="read-the-docs">
