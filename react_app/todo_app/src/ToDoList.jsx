@@ -1,29 +1,35 @@
-export function ToDoList({ handleFormSubmit, listContent }) {
-  return (
-    <main>
-      <section>
-        <form id="todo-form" action={handleFormSubmit}>
-          <input
-            className="todo-form__input"
-            id="todo-input"
-            name="title"
-            type="text"
-            placeholder="Add a new task…"
-            autoComplete="off"
-            required
-          />
-          <button className="todo-form__button" type="submit">
-            Add
-          </button>
-        </form>
-      </section>
+import { Cards } from "./Cards";
 
-      <section>
-        <h2>My TODOs:</h2>
-        <ul className="todo-list" id="todo-list">
-          {listContent}
-        </ul>
-      </section>
-    </main>
-  );
-}
+// Add a new component for the cards
+export function ToDoList(props) {
+
+const todos = props.todos;
+ 
+ // Build up the UI element for the TODOs
+  let listContent = <></>;
+
+  if (todos.length == 0) {
+    // If there are no TODOs, tell the user what to do
+    listContent = <Cards title="No TODOs yet!" content="Add your first TODO above." />;
+  } else {
+    // If there are TODOs, render them as li elements
+    listContent = todos.map((item, i) => {
+
+      return <Cards
+        title={item.name}
+      />;
+
+    });}
+      
+      return (<>
+        <section className='todo-section'>
+          <h2>My TODOs:</h2>
+          <ul className="todo-list" id="todo-list">
+            {listContent}
+          </ul>
+        </section>
+      </>)
+      
+    
+  }
+

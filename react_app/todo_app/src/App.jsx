@@ -3,7 +3,6 @@ import { useState } from 'react';
 import viteLogo from '/vite.svg';
 import { Header } from './Header';
 import { Footer } from './footer';
-import { Cards } from "./Cards";
 import reactLogo from './assets/react.svg';
 import { ToDoList } from './todolist.jsx';
 
@@ -14,27 +13,6 @@ function App() {
   // todos is going to be an empty list []
   // If I want to change todos, I need to use the setTodos() callback function
 
-  // Build up the UI element for the TODOs
-  let listContent = <></>;
-
-  if (todos.length == 0) {
-    // If there are no TODOs, tell the user what to do
-    listContent = <li key="empty" className="todo-list__empty">No tasks yet. Add your first TODO above.</li>;
-  } else {
-    // If there are TODOs, render them as li elements
-    listContent = todos.map((item, i) => {
-      
-      return<Cards
-        title={item.name}
-      />
-      
-      
-      // return <li key={"todo-" + i} className="todo-item">
-      //   <input type="checkbox" className="todo-item__checkbox" data-id={i} id={"todo-" + i} />
-      //   <label htmlFor={"todo-" + i} className="todo-item__label">{item.name}</label>
-      // </li>
-    })
-  }
 
   // Set up add new TODO form handler
   const handleFormSubmit = (formData) => {
@@ -65,7 +43,26 @@ function App() {
   return (
     <>
       <Header title="Welcome to My Website!" message="Thanks for visiting my site." />
-      <ToDoList handleFormSubmit={handleFormSubmit} listContent={listContent} />
+            <main>
+        <section>
+          <form id="todo-form" action={handleFormSubmit}>
+            <input
+              className="todo-form__input"
+              id="todo-input"
+              name="title"
+              type="text"
+              placeholder="Add a new task…"
+              autoComplete="off"
+              required
+            />
+            <button className="todo-form__button" type="submit">Add</button>
+          </form>
+        </section>
+        <ToDoList todos={todos} />  
+      </main>
+      
+      
+      
       {/* <Cards
         title="My first card"
         subtitle="Card subtitle"
