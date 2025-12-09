@@ -1,3 +1,5 @@
+import './SecondCard.css';
+
 export function SecondCard({ title, subtitle, image, content }) {
   return (
     <div className="Secondcard">
