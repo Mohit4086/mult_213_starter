@@ -1,3 +1,5 @@
+import './ToDoList.css';
+
 import { Cards } from "./Cards";
 
 // Add a new component for the cards
