@@ -2,7 +2,7 @@ import './ToDoList.css';
 
 import { Cards } from "./Cards";
 
-// Add a new component for the cards
+
 export function ToDoList(props) {
 
 const todos = props.todos;
